@@ -3,7 +3,7 @@ export const dashboardConfig = [
     {
         key: "menu",
         label: "",
-        icon: <MenuOutlined/>
+        icon: <MenuOutlined/>,
     },
     {
         key: "dashboard",
