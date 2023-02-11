@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
-import {Layout, Menu} from 'antd';
+import {Button, Layout, Menu} from 'antd';
 import './Layout.css'
+import { HomeOutlined, MenuOutlined } from '@ant-design/icons';
+import { dashboardConfig } from './Dashboard/DashboardConfig';
 
 const { Header, Sider, Content } = Layout;
 
@@ -13,18 +15,24 @@ const AppLayout = (props) => {
           color='white'
           mode="inline"
           defaultSelectedKeys={['1']}
-          items={[]}
+          items={dashboardConfig.map(item => {
+            if (item.key === "menu") {
+                return {
+                    ...item,
+                    onClick: () => setCollapsed(prevState => !prevState)
+                }
+            }
+            return item
+          })}
         />
       </Sider>
       <Layout className="header-and-content">
         <Header
-            className='header-container'
-          style={{
-            padding: 0,
-            background: "#fba916",
-          }}
+            className='header'
         >
-          <div className='trigger' onClick={() => setCollapsed((prevState) => !prevState)}>Trigger</div>
+          <div className='trigger' onClick={() => setCollapsed((prevState) => !prevState)}>
+            <Button icon={<MenuOutlined/>} children="Bus Fee Tracker"/>
+          </div>
         </Header>
         <Content
             className='content-container'

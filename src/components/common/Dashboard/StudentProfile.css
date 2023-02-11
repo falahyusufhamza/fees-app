@@ -5,8 +5,45 @@
     height: 100%;
 }
 
+.student-profile-header {
+    border-bottom: 1px solid #e2e1e2;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.student-profile-header p {
+    margin: 0px;
+}
+.student-profile-header span {
+    font-weight: bold;
+    display: inline-block;
+    width: 150px;
+}
+
+.student-profile-header .left {
+
+}
+
+.bus-number-box {
+    width: 100px;
+    height: 100px;
+    border: 1px solid navy;
+    color: navy;
+    font-size: 30px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.student-profile-header .right {
+    margin-right: 20px;
+}
+
 .student-profile .title {
-    border: 1px solid #1440ab;
+    border: 1px solid var(--primary-color);
     display: flex;
     gap: 20px;
     padding: 5px;
