@@ -27,13 +27,11 @@ const Dashboard = () => {
             <div className='table-container'>
                 <StudentsTable data={studentsData} onSelectStudent={onSelectStudent}/>
             </div>
-            <div id='profile-container'>
-                <StudentProfile
-                    studentData={selectedStudent}
-                    onClose={() => setDetailedViewVisible(false)}
-                    isVisible={isDetailedViewVisible}    
-                />
-            </div>
+            <StudentProfile
+                studentData={selectedStudent}
+                onClose={() => setDetailedViewVisible(false)}
+                isVisible={isDetailedViewVisible}    
+            />
         </div>
     </div>
   )
