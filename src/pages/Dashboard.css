@@ -1,0 +1,19 @@
+.dashboard-container {
+    height: 100%;
+}
+.dashboard-container .search-input {
+    margin-bottom: 10px;
+}
+
+.table-and-profile-container {
+    display: flex;
+    height: 90%;
+}
+
+.table-container {
+    flex: 2;
+}
+
+#profile-container {
+    flex: 1;
+}

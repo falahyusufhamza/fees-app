@@ -1,0 +1,19 @@
+.student-profile {
+    padding: 20px;
+    border: 1px solid #e2e1e2;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.student-profile .title {
+    border: 1px solid #1440ab;
+    display: flex;
+    gap: 20px;
+    padding: 5px;
+    border-radius: 40px;
+}
+
+.student-profile .title p {
+    font-size: 25px;
+    font-weight: 500;
+}
