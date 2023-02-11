@@ -7,10 +7,10 @@ import StudentProfile from '../components/common/Dashboard/StudentProfile';
 const { Search } = Input;
 
 const Dashboard = () => {
-    const [showDetailedView, setShowDetailedView] = useState(false);
+    const [isDetailedViewVisible, setDetailedViewVisible] = useState(false);
     const [selectedStudent, setSelectedStudent] = useState();
     const onSelectStudent = (studentId) => {
-        setShowDetailedView(true);
+        setDetailedViewVisible(true);
         setSelectedStudent(studentsData.find(item => item.grno === studentId));
     }
   return (
@@ -27,9 +27,13 @@ const Dashboard = () => {
             <div className='table-container'>
                 <StudentsTable data={studentsData} onSelectStudent={onSelectStudent}/>
             </div>
-            {showDetailedView && <div id='profile-container'>
-                <StudentProfile studentData={selectedStudent}/>
-            </div>}
+            <div id='profile-container'>
+                <StudentProfile
+                    studentData={selectedStudent}
+                    onClose={() => setDetailedViewVisible(false)}
+                    isVisible={isDetailedViewVisible}    
+                />
+            </div>
         </div>
     </div>
   )
