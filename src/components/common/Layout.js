@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
-import {Button, Layout, Menu} from 'antd';
+import { Layout, Menu} from 'antd';
 import './Layout.css'
-import { HomeOutlined, MenuOutlined } from '@ant-design/icons';
 import { dashboardConfig } from './Dashboard/DashboardConfig';
 
 const { Header, Sider, Content } = Layout;
@@ -31,7 +30,7 @@ const AppLayout = (props) => {
             className='header'
         >
           <div className='trigger' onClick={() => setCollapsed((prevState) => !prevState)}>
-            <Button icon={<MenuOutlined/>} children="Bus Fee Tracker"/>
+            <h3>Bus Fee Tracker</h3>
           </div>
         </Header>
         <Content
