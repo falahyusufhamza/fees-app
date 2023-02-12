@@ -17,3 +17,9 @@
 #profile-container {
     flex: 1;
 }
+
+.dashboard-container .table-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

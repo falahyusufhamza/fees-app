@@ -1,0 +1,9 @@
+.create-student-modal .contents {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-top: 50px;
+}
+
+.create-student-modal .modal-header {
+    border-bottom: 1px solid var(--primary-color);
+}
