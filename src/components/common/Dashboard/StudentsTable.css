@@ -1,0 +1,10 @@
+.table-container .student-name {
+    text-decoration: underline;
+    cursor: pointer;
+    color: cadetblue;
+}
+
+.table-container table {
+    width: 100%;
+    overflow-x: auto;
+}

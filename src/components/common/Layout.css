@@ -7,7 +7,42 @@
 }
 
 .layout-container .header {
-    background-color: #e5e5e9;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+.header .left {
+    display: flex;
+    flex: 2;
+    align-items: center;
+}
+
+.layout-container .header .right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.layout-container .header .header-title {
+    font-size: 30px;
+    font-weight: 200;
+    color: #316064;
+}
+
+.layout-container .header .company-name {
+    font-weight: 200;
+    border-radius: 10px;
+    background-color: #4b908e;
+    color: white;
+    padding: 10px;
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    width: fit-content;
 }
 
 .layout-container .trigger {
