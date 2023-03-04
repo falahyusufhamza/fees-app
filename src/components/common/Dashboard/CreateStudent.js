@@ -39,6 +39,7 @@ const CreateStudent = ({
             gender: editData?.gender || "",
             contactNo: editData?.contactNo || "",
         })
+        // eslint-disable-next-line
       }, [editData])
       
       const onCloseForm = () => {
