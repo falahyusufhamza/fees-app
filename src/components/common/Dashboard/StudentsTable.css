@@ -8,3 +8,9 @@
     width: 100%;
     overflow-x: auto;
 }
+
+.table-container .table-footer {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
