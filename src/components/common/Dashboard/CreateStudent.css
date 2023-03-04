@@ -5,5 +5,5 @@
 }
 
 .create-student-modal .modal-header {
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 0.2px solid var(--primary-color);
 }

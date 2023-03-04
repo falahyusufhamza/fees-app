@@ -12,9 +12,18 @@ const Dashboard = () => {
     const [isDetailedViewVisible, setDetailedViewVisible] = useState(false);
     const [selectedStudent, setSelectedStudent] = useState();
     const [isCreateStudentVisible, setCreateStudentVisible] = useState(false);
+    const [selectedRows, setSelectedRows] = useState([]);
+    const [isEditMode, setIsEditMode] = useState(false);
+    const [editData, setEditData] = useState({});
     const onSelectStudent = (studentId) => {
         setDetailedViewVisible(true);
         setSelectedStudent(studentsData.find(item => item.grno === studentId));
+    }
+    const onClickEdit = (data = {}) => {
+        setIsEditMode(true);
+        setCreateStudentVisible(true);
+        setDetailedViewVisible(false);
+        setEditData(data);
     }
   return (
     <div className='dashboard-container'>
@@ -38,17 +47,31 @@ const Dashboard = () => {
         
         <div className='table-and-profile-container'>
             <div className='table-container'>
-                <StudentsTable data={studentsData} onSelectStudent={onSelectStudent}/>
+                <StudentsTable
+                    data={studentsData}
+                    onSelectStudent={onSelectStudent}
+                    selectedRows={selectedRows}
+                    setSelectedRows={setSelectedRows}
+                    editStudent={() => onClickEdit(selectedRows[0])}
+                />
             </div>
             <StudentProfile
                 studentData={selectedStudent}
-                onClose={() => setDetailedViewVisible(false)}
+                onClose={() => {
+                    setDetailedViewVisible(false)
+                }}
+                editStudent={onClickEdit}
                 isVisible={isDetailedViewVisible}    
             />
         </div>
         <CreateStudent
             isVisible={isCreateStudentVisible}
-            onClose={() => setCreateStudentVisible(false)}
+            onClose={() => {
+                setIsEditMode(false);
+                setCreateStudentVisible(false)}
+            }
+            isEditMode={isEditMode}
+            editData={editData}
         />
     </div>
   )

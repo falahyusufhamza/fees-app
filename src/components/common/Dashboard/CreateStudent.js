@@ -1,13 +1,15 @@
 import { Button, Col, Form, Input, Modal, Row, Select } from 'antd'
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./CreateStudent.css"
 
 const CreateStudent = ({
     isVisible = false,
-    onClose = () => {}
+    onClose = () => {},
+    isEditMode = false,
+    editData = {},
 }) => {
     const {Option} = Select;
-    const [form] = Form.useForm();
+    const [studentForm] = Form.useForm();
     const formItemLayout = {
         labelCol: {
           xs: {
@@ -26,6 +28,24 @@ const CreateStudent = ({
           },
         },
       };
+
+      useEffect(() => {
+        studentForm.setFieldsValue({
+            name: editData?.name || "",
+            grno: editData?.grno || "",
+            school: editData?.school || "",
+            location: editData?.location || "",
+            busNo: editData?.busNo || "",
+            gender: editData?.gender || "",
+            contactNo: editData?.contactNo || "",
+        })
+        // eslint-disable-next-line
+      }, [editData])
+      
+      const onCloseForm = () => {
+        studentForm.setFieldsValue({})
+        onClose();
+      }
   return (
     <Modal
         open={isVisible}
@@ -33,18 +53,13 @@ const CreateStudent = ({
         title={<div className='modal-header'>
             <p className='modal-title'>Create a new student</p>
         </div>}
-        onCancel={onClose}
+        onCancel={onCloseForm}
         children={<div className='contents'>
             <Form
                 {...formItemLayout}
-                form={form}
-                name="register"
+                form={studentForm}
+                name="student-form"
                 onFinish={(values) => console.log(values)}
-                initialValues={{
-                    residence: ['zhejiang', 'hangzhou', 'xihu'],
-                    prefix: '86',
-                }}
-                scrollToFirstError
                 >
                     <Row style={{width: "100%"}} gutter={20}>
                     <Col style={{width: "100%"}} span={12}>
@@ -106,7 +121,7 @@ const CreateStudent = ({
                 </Form.Item>
 
                 <Form.Item
-                    name="contact"
+                    name="contactNo"
                     label="Phone Number"
                 >
                     <Input/>
