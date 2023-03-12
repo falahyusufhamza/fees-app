@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Layout, Menu} from 'antd';
 import './Layout.css'
-import { dashboardConfig } from './Dashboard/DashboardConfig';
+import { dashboardConfig } from '../Dashboard/DashboardConfig';
 
 const { Header, Sider, Content } = Layout;
 
