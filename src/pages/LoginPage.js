@@ -17,6 +17,7 @@ const LoginPage = () => {
         if (localStorage.getItem("USER_ID") === "ADMIN") {
             navigate("/")
         }
+        // eslint-disable-next-line
     }, [])
   return (
     <div className="login-page">
