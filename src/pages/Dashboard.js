@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
-import StudentsTable from '../components/common/Dashboard/StudentsTable'
+import StudentsTable from '../components/Dashboard/StudentsTable'
 import { studentsData } from '../constants/dummyData'
 import { Button, Input } from 'antd';
 import './Dashboard.css';
-import StudentProfile from '../components/common/Dashboard/StudentProfile';
+import StudentProfile from '../components/Dashboard/StudentProfile';
 import { PlusOutlined } from '@ant-design/icons';
-import CreateStudent from '../components/common/Dashboard/CreateStudent';
+import CreateStudent from '../components/Dashboard/CreateStudent';
+import MakePayment from '../components/Dashboard/MakePayment';
 const { Search } = Input;
 
 const Dashboard = () => {
@@ -15,6 +16,7 @@ const Dashboard = () => {
     const [selectedRows, setSelectedRows] = useState([]);
     const [isEditMode, setIsEditMode] = useState(false);
     const [editData, setEditData] = useState({});
+    const [isPaymentModalVisible, setIsPaymentModalVisible] = useState(false);
     const onSelectStudent = (studentId) => {
         setDetailedViewVisible(true);
         setSelectedStudent(studentsData.find(item => item.grno === studentId));
@@ -24,6 +26,11 @@ const Dashboard = () => {
         setCreateStudentVisible(true);
         setDetailedViewVisible(false);
         setEditData(data);
+    }
+    const onClickPay = (data = {}) => {
+        setIsPaymentModalVisible(false);
+        setEditData(data);
+        setIsPaymentModalVisible(true);
     }
   return (
     <div className='dashboard-container'>
@@ -53,6 +60,7 @@ const Dashboard = () => {
                     selectedRows={selectedRows}
                     setSelectedRows={setSelectedRows}
                     editStudent={() => onClickEdit(selectedRows[0])}
+                    onClickPay={() => onClickPay(selectedRows[0])}
                 />
             </div>
             <StudentProfile
@@ -61,6 +69,7 @@ const Dashboard = () => {
                     setDetailedViewVisible(false)
                 }}
                 editStudent={onClickEdit}
+                onClickPay={onClickPay}
                 isVisible={isDetailedViewVisible}    
             />
         </div>
@@ -72,6 +81,11 @@ const Dashboard = () => {
             }
             isEditMode={isEditMode}
             editData={editData}
+        />
+        <MakePayment
+            isVisible={isPaymentModalVisible}
+            onClose={() => setIsPaymentModalVisible(false)}
+            studentData={editData}
         />
     </div>
   )

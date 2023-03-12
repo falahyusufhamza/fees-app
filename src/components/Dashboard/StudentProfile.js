@@ -7,6 +7,7 @@ const StudentProfile = ({
     isVisible = false,
     onClose = () => {},
     editStudent = () => {},
+    onClickPay = () => {},
 }) => {
     const {
         name,
@@ -41,7 +42,7 @@ const StudentProfile = ({
         <div className='student-actions'>
           <Button onClick={() => editStudent(studentData)} type='primary' children="Edit details"/>
           <Button type='primary' children="Delete Student"/>
-          <Button type='primary' children="Pay fees"/>
+          <Button onClick={() => onClickPay(studentData)} type='primary' children="Pay fees"/>
         </div>
         <div className='profile-content'>
             

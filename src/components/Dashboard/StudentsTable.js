@@ -8,6 +8,7 @@ const StudentsTable = ({
     selectedRows = [],
     setSelectedRows,
     editStudent = () => {},
+    onClickPay = () => {},
 }) => {
     const columns = [
         {
@@ -70,7 +71,7 @@ const StudentsTable = ({
           footer: () => !!selectedRows?.length && <div className='table-footer'>
           {selectedRows?.length === 1 && <Button onClick={editStudent} type='primary' children="Edit details"/>}
           <Button type='primary' children="Delete Student"/>
-          <Button type='primary' children="Pay fees"/>
+          {selectedRows?.length === 1 && <Button onClick={onClickPay} type='primary' children="Pay fees"/>}
         </div>
         }
       }
