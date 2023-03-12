@@ -1,11 +1,14 @@
 import React, {useState} from 'react'
-import {Layout, Menu} from 'antd';
+import {Button, Layout, Menu} from 'antd';
 import './Layout.css'
 import { dashboardConfig } from '../Dashboard/DashboardConfig';
+import { LogoutOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 
 const { Header, Sider, Content } = Layout;
 
 const AppLayout = (props) => {
+    const navigate = useNavigate();
     const [collapsed, setCollapsed] = useState(true);
   return (<Layout className='layout-container'>
       <Sider className='sider' trigger={null} collapsible collapsed={collapsed}>
@@ -37,7 +40,10 @@ const AppLayout = (props) => {
                     </div>
             </div>
             <div className='right'>
-                Profile
+                <Button onClick={() => {
+                  localStorage.removeItem("USER_ID");
+                  navigate("/login")
+                }} icon={<LogoutOutlined/>} type='primary' children="Logout" />
             </div>
 
                     

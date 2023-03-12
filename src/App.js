@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import 'antd/dist/reset.css';
+import ProtectedRoute from './components/common/ProtectedRoute';
 
 const LayoutWrapper = ({element}) => {
   return <div className='App'>
@@ -13,11 +14,15 @@ const LayoutWrapper = ({element}) => {
     </div>
 }
 
+const PrivateRouteWrapper = ({component}) => {
+  return <ProtectedRoute component={component}  />
+}
+
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/dashboard",
-      element: <LayoutWrapper element={<Dashboard/>}/>
+      path: "/",
+      element: <PrivateRouteWrapper component={<PrivateRouteWrapper component={<LayoutWrapper element={<Dashboard/>} />} />}/>
     },
     {
       path: "/login",

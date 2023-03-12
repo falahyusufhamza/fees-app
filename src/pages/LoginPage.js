@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './LoginPage.css';
 import { Form, Button, Input } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
@@ -9,9 +9,15 @@ const LoginPage = () => {
     const onLogin = (values) => {
         const {username, password} = values;
         if (username === "admin" && password === "admin") {
-            navigate("/dashboard");
+            navigate("/");
+            localStorage.setItem("USER_ID", "ADMIN");
         }
     }
+    useEffect(() => {
+        if (localStorage.getItem("USER_ID") === "ADMIN") {
+            navigate("/")
+        }
+    }, [])
   return (
     <div className="login-page">
       <div className="login-container">
