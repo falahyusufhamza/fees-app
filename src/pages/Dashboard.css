@@ -11,7 +11,11 @@
 }
 
 .table-container {
-    flex: 2;
+    width: 100%;
+}
+
+.table-container .ant-table-wrapper {
+    overflow-x: auto;
 }
 
 #profile-container {
