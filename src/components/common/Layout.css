@@ -8,8 +8,12 @@
 
 .layout-container .header {
     background-color: white;
+}
+
+.header .header-desktop-view {
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
 .header .left {
@@ -30,22 +34,30 @@
     color: #316064;
 }
 
-.layout-container .header .company-name {
-    font-weight: 200;
-    border-radius: 10px;
-    background-color: #4b908e;
-    color: white;
-    padding: 10px;
-    margin-left: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    width: fit-content;
-}
-
 .layout-container .trigger {
     width: 20px;
+}
+
+.layout-container .header .header-mobile-view {
+    display: none;
+}
+
+.layout-container .footer {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .layout-container .header .header-mobile-view {
+        display: block;
+    }
+    .layout-container .header .header-desktop-view {
+        display: none;
+    }
+    .ant-layout-sider {
+        display: none;
+    }
+    .layout-container .footer {
+        display: block;
+    }
 }
 
