@@ -71,13 +71,6 @@ const LoginPage = () => {
           </Form.Item>
         </Form>
         </div>
-        
-        <div className='extra-content'>
-            <div>
-                <h2>Hey there!</h2>
-                <p className='description'>Welcome. Lets get things started!</p>
-            </div>
-        </div>
       </div>
     </div>
   );

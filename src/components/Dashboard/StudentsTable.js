@@ -1,6 +1,7 @@
 import React from 'react'
-import {Button, Table} from 'antd';
+import {Button, Dropdown, Table} from 'antd';
 import "./StudentsTable.css";
+import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons';
 
 const StudentsTable = ({
     data = [],
@@ -55,6 +56,30 @@ const StudentsTable = ({
             dataIndex: 'feePerMonth',
         },
       ];
+
+      const tableActions = [
+        {
+          label: 'Edit student',
+          key: '1',
+          icon: <EditOutlined/>,
+          type: "single",
+          onClick: editStudent,
+        },
+        {
+          label: 'Pay fees',
+          key: '2',
+          icon: <PlusOutlined />,
+          type: "single",
+          onClick: onClickPay,
+        },
+        {
+          label: 'Delete student(s)',
+          key: '3',
+          icon: <DeleteOutlined />,
+          type: "multiple",
+        },
+      ]
+
       const rowSelection = {
         onChange: (selectedRowKeys, selectedRows) => {
           setSelectedRows(selectedRows)
@@ -68,11 +93,27 @@ const StudentsTable = ({
       let tableFooterProps = {};
       if (!!selectedRows?.length) {
         tableFooterProps = {
-          footer: () => !!selectedRows?.length && <div className='table-footer'>
-          {selectedRows?.length === 1 && <Button onClick={editStudent} type='primary' children="Edit details"/>}
-          <Button type='primary' children="Delete Student"/>
-          {selectedRows?.length === 1 && <Button onClick={onClickPay} type='primary' children="Pay fees"/>}
+          footer: () => !!selectedRows?.length && <>
+          <div className='table-footer'>
+            {tableActions.map(action => {
+              if (selectedRows?.length > 1) {
+                return action.type !== "single" && 
+                  <Button onClick={action.onClick} type='primary' children={action.label}/>
+              }
+                return <Button onClick={action.onClick} type='primary' children={action.label}/>
+            })}
         </div>
+        <div className='mobile-view-table-footer'>
+          <Dropdown.Button menu={{items: tableActions.filter(item => {
+            if (selectedRows?.length > 1) {
+              return item.type !== "single";
+            }
+            return item;
+          })}}>
+            Student actions
+          </Dropdown.Button>
+        </div>
+        </>
         }
       }
   return (

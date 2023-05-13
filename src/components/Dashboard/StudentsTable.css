@@ -14,3 +14,16 @@
     gap: 20px;
     justify-content: flex-end;
 }
+
+.table-container .mobile-view-table-footer {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .table-container .table-footer {
+        display: none;
+    }
+    .table-container .mobile-view-table-footer {
+        display: block;
+    }
+}
