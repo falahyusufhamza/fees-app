@@ -31,13 +31,10 @@ const AppLayout = (props) => {
       <Layout className="header-and-content">
         <Header
             className='header'
-            title='BUS FEE TRACKER'
         >
+          <div className='header-desktop-view'>
             <div className='left'>
-                    <div className='header-title'>BUS FEE TRACKER</div>  
-                    <div className='company-name'>
-                        NOOR AL SABAH INTERNATIONAL LLC    
-                    </div>
+                <div className='header-title'>BUS FEE TRACKER</div>  
             </div>
             <div className='right'>
                 <Button onClick={() => {
@@ -45,9 +42,10 @@ const AppLayout = (props) => {
                   navigate("/login")
                 }} icon={<LogoutOutlined/>} type='primary' children="Logout" />
             </div>
-
-                    
-            
+          </div>
+          <div className='header-mobile-view'>
+            <div className='header-title'>BUS FEE TRACKER</div>  
+          </div>                   
         </Header>
         <Content
             className='content-container'
@@ -60,6 +58,22 @@ const AppLayout = (props) => {
         >
           {props.children}
         </Content>
+        <div className='footer'>
+          <Menu
+            color='white'
+            mode="horizontal"
+            defaultSelectedKeys={['1']}
+            items={dashboardConfig.map(item => {
+              if (item.key === "menu") {
+                  return {
+                      ...item,
+                      onClick: () => setCollapsed(prevState => !prevState)
+                  }
+              }
+              return item
+            })}
+          />
+        </div>
       </Layout>
     </Layout>
   )
