@@ -1,0 +1,48 @@
+.students-container {
+    height: 100%;
+}
+.students-container .search-input {
+    margin-bottom: 10px;
+}
+
+.table-and-profile-container {
+    display: flex;
+    height: 90%;
+}
+
+.table-container {
+    width: 100%;
+}
+
+.table-container .ant-table-container {
+    overflow-x: auto;
+}
+
+.table-container .ant-table-footer .table-footer {
+    width: 100%;
+    overflow-x: auto;
+}
+
+@media screen and (max-width: 600px) {
+    .table-container .ant-table-footer .table-footer {
+        padding-bottom: 20px;
+    }
+}
+
+#profile-container {
+    flex: 1;
+}
+
+.students-container .table-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.students-container .table-actions .right-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
