@@ -1,10 +1,11 @@
 import './App.css';
 import AppLayout from './components/common/Layout';
-import Dashboard from './pages/Dashboard';
+import Students from './pages/Students';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import 'antd/dist/reset.css';
 import ProtectedRoute from './components/common/ProtectedRoute';
+import Dashboard from './pages/Dashboard';
 
 const LayoutWrapper = ({element}) => {
   return <div className='App'>
@@ -23,6 +24,10 @@ function App() {
     {
       path: "/",
       element: <PrivateRouteWrapper component={<PrivateRouteWrapper component={<LayoutWrapper element={<Dashboard/>} />} />}/>
+    },
+    {
+      path: "/students",
+      element: <PrivateRouteWrapper component={<PrivateRouteWrapper component={<LayoutWrapper element={<Students/>} />} />}/>
     },
     {
       path: "/login",

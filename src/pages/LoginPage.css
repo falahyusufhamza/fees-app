@@ -4,7 +4,7 @@
     align-items: center;
     width: 100vw;
     justify-content: center;
-    background: linear-gradient(200deg, var(--primary-lite) 0%, var(--secondary-color) 100%);
+    background: linear-gradient(200deg, var(--primary-dark) 0%, var(--secondary-color) 100%);
 }
 .login-page .login-container {
     display: flex;

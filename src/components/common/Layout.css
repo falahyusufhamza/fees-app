@@ -3,7 +3,7 @@
 }
 
 .layout-container .sider {
-    background-color: #316064;
+    background-color: white;
 }
 
 .layout-container .header {
@@ -29,9 +29,14 @@
 }
 
 .layout-container .header .header-title {
-    font-size: 30px;
+    font-size: 1.3rem;
     font-weight: 200;
-    color: #316064;
+    color: var(--primary-dark);
+}
+
+.layout-container .ant-layout-content {
+    margin: 10px !important;
+    overflow: auto;
 }
 
 .layout-container .trigger {
@@ -41,6 +46,8 @@
 .layout-container .header .header-mobile-view {
     display: none;
     text-align: center;
+    background-color: var(--secondary-color);
+    padding-inline: 0px !important;
 }
 
 .layout-container .footer {
@@ -48,17 +55,18 @@
 }
 
 @media screen and (max-width: 600px) {
-    .layout-container .header .header-mobile-view {
-        display: block;
+    .ant-layout-sider {
+        display: none;
+    }
+    .ant-layout-header {
+        padding-inline: 0px !important;
     }
     .layout-container .header .header-desktop-view {
         display: none;
     }
-    .ant-layout-sider {
-        display: none;
-    }
-    .layout-container .footer {
+    .layout-container .header .header-mobile-view {
         display: block;
+        text-align: center;
     }
-}
+} 
 

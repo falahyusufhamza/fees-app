@@ -5,14 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --primary-color: #316064;
-  --primary-lite: #4B908E;
-  --secondary-color: #E5E5E9;
-  --secondary-dark: #B8D7D5;
+  --primary-color: #9fafce;
+  --primary-dark: #10377a;
+  --secondary-color: #f58225;
 }
 
 body .ant-btn-primary {
-  background-color: var(--primary-lite);
+  background-color: var(--primary-dark);
 }
 body .ant-btn-primary:not(:disabled):hover {
   background-color: var(--primary-color);

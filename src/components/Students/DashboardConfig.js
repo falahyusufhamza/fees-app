@@ -1,4 +1,4 @@
-import { HomeOutlined, MenuOutlined } from "@ant-design/icons"
+import { HomeOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons"
 export const dashboardConfig = [
     {
         key: "menu",
@@ -9,5 +9,10 @@ export const dashboardConfig = [
         key: "dashboard",
         label: "Dashboard",
         icon: <HomeOutlined/>
+    },
+    {
+        key: "students",
+        label: "Students",
+        icon: <UserOutlined/>
     }
 ]
