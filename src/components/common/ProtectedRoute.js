@@ -1,15 +1,13 @@
-import React from 'react'
-import LoginPage from '../../pages/LoginPage';
+import { useNavigate } from 'react-router-dom';
 
 const ProtectedRoute = ({
     component,
 }) => {
+    const navigate = useNavigate();
     if (localStorage.getItem("USER_ID") === "ADMIN") {
         return component;
     }
-  return (
-    <LoginPage/>
-  )
+    navigate("/login")
 }
 
 export default ProtectedRoute

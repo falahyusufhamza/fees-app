@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Button, Layout, Menu} from 'antd';
 import './Layout.css'
-import { dashboardConfig } from '../Dashboard/DashboardConfig';
+import { dashboardConfig } from '../Students/DashboardConfig';
 import { LogoutOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 
@@ -53,7 +53,7 @@ const AppLayout = (props) => {
             margin: '24px 16px',
             padding: 24,
             minHeight: 280,
-            background: "white",
+            // background: "white",
           }}
         >
           {props.children}
