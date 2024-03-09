@@ -1,9 +1,8 @@
-import { FilePdfOutlined, HomeOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons"
-
-export const dashboardConfig = (navigate) => [
+import { HomeOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons"
+export const dashboardConfig = [
     {
         key: "menu",
-        label: "Menu",
+        label: "",
         icon: <MenuOutlined/>,
     },
     {
@@ -12,15 +11,8 @@ export const dashboardConfig = (navigate) => [
         icon: <HomeOutlined/>
     },
     {
-        key: "passengers",
-        label: "Passengers",
-        icon: <UserOutlined/>,
-        onClick: () => navigate("/passengers"),
-    },
-    {
-        key: "invoices",
-        label: "Invoices",
-        icon: <FilePdfOutlined/>,
-        onClick: () => navigate("/invoices")
+        key: "students",
+        label: "Students",
+        icon: <UserOutlined/>
     }
 ]

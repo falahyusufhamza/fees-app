@@ -5,6 +5,7 @@ import "./CreateStudent.css"
 const CreateStudent = ({
     isVisible = false,
     onClose = () => {},
+    isEditMode = false,
     editData = {},
 }) => {
     const {Option} = Select;

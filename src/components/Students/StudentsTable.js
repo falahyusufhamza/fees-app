@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
-import {Button, Dropdown, Pagination, Table} from 'antd';
+import React from 'react'
+import {Button, Dropdown, Table} from 'antd';
 import "./StudentsTable.css";
 import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons';
-import PassengerBills from '../Invoices/PassengerBills';
-
 
 const StudentsTable = ({
     data = [],
@@ -12,16 +10,11 @@ const StudentsTable = ({
     setSelectedRows,
     editStudent = () => {},
     onClickPay = () => {},
-    params = {},
-    setParams,
-    paginationData = {},
 }) => {
-  const [isBillsVisible, setIsBillsVisible] = useState(false);
-  const [billingPaxData, setBillingPaxData] = useState();
     const columns = [
         {
-            title: 'Id',
-            dataIndex: 'passengerId',
+            title: 'GR',
+            dataIndex: 'grno',
             fixed: "left",
             width: "50px",
         },
@@ -33,13 +26,34 @@ const StudentsTable = ({
           width: "250px",
         },
         {
-          title: 'Class',
-          dataIndex: 'class',
+          title: 'School',
+          dataIndex: 'school',
           width: "200px"
         },
+        // {
+        //   title: 'Class',
+        //   dataIndex: 'class',
+        // },
+        // {
+        //     title: 'Location',
+        //     dataIndex: 'location',
+        // },
         {
-            title: 'Location',
-            dataIndex: 'location',
+            title: 'Bus No.',
+            dataIndex: 'busNumber',
+            width: '100px'
+        },
+        // {
+        //     title: 'Father',
+        //     dataIndex: 'fatherName',
+        // },
+        // {
+        //     title: 'Contact number',
+        //     dataIndex: 'contactNo',
+        // },
+        {
+            title: 'Fee / month',
+            dataIndex: 'feePerMonth',
         },
       ];
 
@@ -103,30 +117,17 @@ const StudentsTable = ({
         }
       }
   return (
-    <>
-      <Table
-          rowKey={"passengerId"}
-          columns={columns}
-          dataSource={data}
-          pagination={false}
-          rowSelection={{
-            type: "checkbox",
-            ...rowSelection,
-          }}
-          {...tableFooterProps}
-        />
-        <Pagination
-          defaultPageSize={paginationData?.pageSize}
-          total={paginationData?.totalItems}
-          current={paginationData?.currentPage}
-          showSizeChanger={false}
-          onChange={(page) => setParams((prevParams) => ({
-            ...prevParams,
-            page,
-          }))}
-        />
-        <PassengerBills isVisible={isBillsVisible} setIsVisible={setIsBillsVisible} passengerData={billingPaxData}/>
-    </>
+    <Table
+        rowKey={"grno"}
+        columns={columns}
+        dataSource={data}
+        pagination={false}
+        rowSelection={{
+          type: "checkbox",
+          ...rowSelection,
+        }}
+        {...tableFooterProps}
+      />
   )
 }
 

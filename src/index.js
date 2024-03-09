@@ -3,20 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import axios from 'axios';
-
-axios.defaults.baseURL = process.env.NODE_ENV === "development" ? "http://localhost:8080" : "";
-axios.defaults.withCredentials = true;
-axios.interceptors.response.use((response) => {
-  return response;
-},
-  error => {
-    if (error?.response?.status === 401) {
-      window.location.href = process.env.NODE_ENV === "development" ? "http://localhost:3000/login" : "";
-      return;
-    }
-    Promise.reject(error?.response)
-});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
