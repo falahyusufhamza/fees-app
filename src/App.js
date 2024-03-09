@@ -6,6 +6,8 @@ import LoginPage from './pages/LoginPage';
 import 'antd/dist/reset.css';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import Dashboard from './pages/Dashboard';
+import NoContent from './pages/NoContent';
+import Invoices from './pages/Invoices';
 
 const LayoutWrapper = ({element}) => {
   return <div className='App'>
@@ -22,17 +24,21 @@ const PrivateRouteWrapper = ({component}) => {
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
-      element: <PrivateRouteWrapper component={<PrivateRouteWrapper component={<LayoutWrapper element={<Dashboard/>} />} />}/>
+      path: "/passengers",
+      element: <LayoutWrapper element={<Students/>} />
     },
     {
-      path: "/students",
-      element: <PrivateRouteWrapper component={<PrivateRouteWrapper component={<LayoutWrapper element={<Students/>} />} />}/>
+      path: "/invoices",
+      element: <LayoutWrapper element={<Invoices/>} />
     },
     {
       path: "/login",
       element: <LoginPage/>
-    }
+    },
+    {
+      path: "/",
+      element: <LayoutWrapper element={<NoContent/>} />
+    },
   ])
   return (
     <RouterProvider router={router} />
