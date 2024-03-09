@@ -3,15 +3,23 @@ import './LoginPage.css';
 import { Form, Button, Input } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import { API_URLS } from '../apiUrls';
+import axios from 'axios';
 
 const LoginPage = () => {
     const navigate = useNavigate();
     const onLogin = (values) => {
         const {username, password} = values;
-        if (username === "admin" && password === "admin") {
-            navigate("/");
-            localStorage.setItem("USER_ID", "ADMIN");
-        }
+        axios.post("/signin", {
+          userName: username,
+          password,
+        }).then((res) => {
+          if (res?.data?.success) {
+            navigate("/passengers");
+          }
+        }).catch((error) => {
+          console.log(error);
+        })
     }
     useEffect(() => {
         if (localStorage.getItem("USER_ID") === "ADMIN") {
