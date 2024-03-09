@@ -74,7 +74,7 @@ function Invoices() {
   const refreshFees = () => {
     fetchFamilyDues();
     setCurrentFamily();
-  }
+  };
 
   return (
     <>
